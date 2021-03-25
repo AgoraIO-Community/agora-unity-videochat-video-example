@@ -95,14 +95,12 @@ public class AgoraEngine : MonoBehaviour
         GameObject newUserVideo = GameObject.CreatePrimitive(PrimitiveType.Plane);
         newUserVideo.name = uid.ToString();
         playerVideoList.Add(newUserVideo);
-
-        VideoSurface newVideoSurface = newUserVideo.AddComponent<VideoSurface>();
-
-        // set up transform
+        
         newUserVideo.transform.Rotate(-90f, 0.0f, 0.0f);
         float xPos = Random.Range(-VIDEO_X_POS_OFFSET, VIDEO_X_POS_OFFSET);
         newUserVideo.transform.position = new Vector3(xPos, 5, 15f);
 
+        VideoSurface newVideoSurface = newUserVideo.AddComponent<VideoSurface>();
         if(isLocalUser == false)
         {
             newVideoSurface.SetForUser(uid);
